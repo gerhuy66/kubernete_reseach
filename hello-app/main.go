@@ -59,5 +59,5 @@ func templateHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Fprintf(w, "Unable to load template")
 	}
-	t.Execute(w)
+	t.Execute(w,{})
 }
