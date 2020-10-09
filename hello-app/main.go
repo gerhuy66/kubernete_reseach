@@ -15,7 +15,7 @@ type User struct  {
 }
 
 func main() {
-	http.HandleFunc("/", templateHandler)
+	http.HandleFunc("/", handler)
 	http.HandleFunc("/json", jsonHandler)
 	http.HandleFunc("/template", templateHandler)
 	http.ListenAndServe(":8080", nil)
@@ -29,10 +29,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	user := User{Id: 1, 
-				Name: "John Doe", 
-				Email: "johndoe@gmail.com", 
-				Phone: "000099999"}
-	json.NewEncoder(w).Encode(user)	
+			Name: "John Doe", 
+			Email: "johndoe@gmail.com", 
+			Phone: "000099999"}
+	json.NewEncoder(w).Encode(user)
 }
 
 //templateHandler renders a template and returns as http response.
