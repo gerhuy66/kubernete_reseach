@@ -22,6 +22,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"html/template"
 )
 
 func main() {
@@ -58,10 +59,5 @@ func templateHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Fprintf(w, "Unable to load template")
 	}
-
-	user := User{Id: 1, 
-		Name: "HUY", 
-		Email: "duchuy1096@gmail.com", 
-		Phone: "123214324"}
-	t.Execute(w, user)
+	t.Execute(w)
 }
