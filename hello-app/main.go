@@ -39,6 +39,7 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 func templateHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	t, err := template.ParseFiles("template.html")
+	fmt.Fprintf(w, "Success response HTML")
 	if err != nil {
 		fmt.Fprintf(w, "Unable to load template")
 	}
