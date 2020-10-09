@@ -24,7 +24,12 @@ import (
 	"os"
 	"html/template"
 )
-
+type User struct  {
+	Id int 		 `json:"id"`
+	Name string	 `json:"name"`
+	Email string `json:"email"`
+	Phone string `json:"phone"`
+}
 func main() {
 	// register hello function to handle all requests
 	mux := http.NewServeMux()
@@ -59,5 +64,9 @@ func templateHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Fprintf(w, "Unable to load template")
 	}
-	t.Execute(w,{})
+	user := User{Id: 1, 
+		Name: "John Doe", 
+		Email: "johndoe@gmail.com", 
+		Phone: "000099999"}
+	t.Execute(w,user)
 }
