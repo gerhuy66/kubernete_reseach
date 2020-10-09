@@ -34,7 +34,7 @@ func main() {
 	// register hello function to handle all requests
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", hello)
-	mux.HandleFunc("/template", templateHandler)
+	http.HandleFunc("/template", templateHandler)
 
 	// use PORT environment variable, or default to 8080
 	port := os.Getenv("PORT")
