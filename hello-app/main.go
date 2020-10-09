@@ -28,6 +28,7 @@ func main() {
 	// register hello function to handle all requests
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", hello)
+	mux.HandleFunc("/template", templateHandler)
 
 	// use PORT environment variable, or default to 8080
 	port := os.Getenv("PORT")
@@ -50,3 +51,17 @@ func hello(w http.ResponseWriter, r *http.Request) {
 }
 
 // [END container_hello_app]
+
+func templateHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	t, err := template.ParseFiles("template.html")
+	if err != nil {
+		fmt.Fprintf(w, "Unable to load template")
+	}
+
+	user := User{Id: 1, 
+		Name: "HUY", 
+		Email: "duchuy1096@gmail.com", 
+		Phone: "123214324"}
+	t.Execute(w, user)
+}
