@@ -15,7 +15,7 @@ type User struct  {
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", templateHandler)
 	http.HandleFunc("/json", jsonHandler)
 	http.HandleFunc("/template", templateHandler)
 	http.ListenAndServe(":8080", nil)
