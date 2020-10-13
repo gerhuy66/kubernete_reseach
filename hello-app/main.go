@@ -32,8 +32,7 @@ func jsonHandler(w http.ResponseWriter, r *http.Request) {
 		Id: 1, 
 		Name: "John Doe", 
 		Email: "johndoe@gmail.com", 
-		Phone: "000099999"
-	}
+		Phone: "000099999"}
 	json.NewEncoder(w).Encode(user)
 }
 
