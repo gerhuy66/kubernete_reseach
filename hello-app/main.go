@@ -28,7 +28,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 //jsonHandler returns http respone in JSON format.
 func jsonHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	user := USER{
+	user := User{
 		Id: 1, 
 		Name: "John Doe", 
 		Email: "johndoe@gmail.com", 
