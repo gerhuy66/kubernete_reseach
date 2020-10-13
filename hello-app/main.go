@@ -18,7 +18,7 @@ func main() {
 	http.HandleFunc("/", handler)
 	http.HandleFunc("/json", jsonHandler)
 	http.HandleFunc("/template", templateHandler)
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8081", nil)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
